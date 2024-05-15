@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "Psychedelia HM";
+    src: url("Psychedelia HM.ttf") format("truetype");
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #e97451;
+    color: white;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "Psychedelia HM", serif;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.social-icons {
+    margin-left: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: white;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 5px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background-color: #666;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.about-us {
+    margin-bottom: 50px;
+}
+
+.about-us h2 {
+    /* font-family: "Psychedelia HM", serif; */
+    font-size: 24px;
+}
+
+.upcoming-shows {
+    margin-bottom: 50px;
+}
+
+.upcoming-shows h2 {
+    /* font-family: "Psychedelia HM", serif; */
+    font-size: 24px;
+}
+
+.band-photo {
+    max-width: 100%;
+    height: auto;
+}
+
+.show-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.show-list li {
+    margin-bottom: 10px;
+    border-left: 4px solid #333;
+    padding-left: 10px;
+}
+
+.show-list li:last-child {
+    margin-bottom: 0;
+}
+
+.show-date {
+    font-weight: bold;
+    color: #666;
+}
+
+.show-details {
+    color: #777;
+}

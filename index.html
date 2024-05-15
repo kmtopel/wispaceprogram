@@ -4,8 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wisconsin Space Program</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="assets/main.css">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "MusicGroup",
+          "name": "Wisconsin Space Program",
+          "url": "https://www.wisconsinspaceprogram.com",
+          "description": "Psychedelic rock band from Milwaukee, WI",
+          "foundingDate": "11-01-2023",
+          "genre": "Psychedelic Rock",
+          "email": "wispaceprogram@gmail.com",
+          "logo": "assets/img/wsp_logo.png",
+          "image": "assets/img/wsp_band.jpeg",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61556169305214",
+            "https://www.instagram.com/wispaceprogram/?locale=ne_NP&hl=ar",
+            "https://twitter.com/wispaceprogram"
+          ]
+        }
+    </script>
 </head>
 <body>
-    <h1>Wisconsin Space Program</h1>
+    <header>
+        <h1><a href="#">Wisconsin Space Program</a></h1>
+        <nav class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61556169305214" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/wispaceprogram/?locale=ne_NP&hl=ar" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Bandcamp"><i class="fab fa-bandcamp"></i></a>
+            <a href="https://twitter.com/wispaceprogram" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>Welcome to the psychedelic journey of the Wisconsin Space Program. We're a group of cosmic explorers bound by our love for mind-bending music and far-out experiences. Our mission is to take you on a sonic voyage through the depths of the universe.</p>
+        </section>
+        <section class="upcoming-shows">
+            <h2>Upcoming Shows</h2>
+            <ul class="show-list">
+                <li>
+                    <span class="show-date">June 9, 2024 @ <time datetime="13:30">1:30 PM</time></span>
+                    <p class="show-details">Linneman's (indoor) at Locust St Fest</p>
+                    <a href="https://www.facebook.com/events/1955545858213236" target="_blank">Details</a>
+                    <script type="application/ld+json">
+                        {
+                          "@context": "https://schema.org",
+                          "@type": "Event",
+                          "location": {
+                            "@type": "Place",
+                            "address": {
+                              "@type": "PostalAddress",
+                              "name": "Linneman's Riverwest Inn",
+                              "addressLocality": "Milwaukee",
+                              "addressRegion": "WI",
+                              "postalCode": "53212",
+                              "streetAddress": "1001 E Locust St"
+                            },
+                            "name": "Linneman's Riverwest Inn"
+                          },
+                          "name": "Locust St Festival",
+                          "startDate": "2024-06-09T13:30:00"
+                        }
+                    </script>
+                </li>
+            </ul>
+        </section>
+        <img src="assets/img/wsp_band.jpeg" alt="Wisconsin Space Program Band" class="band-photo">
+    </div>
 </body>
 </html>
