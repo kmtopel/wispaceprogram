@@ -17,14 +17,20 @@ a {
 }
 
 iframe {
-    min-height: 350px;
+    min-height: 375px;
 }
+
+/* @media screen and (min-width: 500px) {
+    iframe {
+        min-height: 500px;
+    }
+    
+} */
 
 @media screen and (min-width: 600px) {
     iframe {
         min-height: 600px;
     }
-    
 }
 
 nav {
