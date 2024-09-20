@@ -84,6 +84,16 @@ nav {
     padding-left: 10px;
 }
 
+.show-list li:has(a) {
+    box-shadow: 0;
+    transition: box-shadow 0.25s ease-in-out;
+}
+
+.show-list li:has(a):hover {
+    box-shadow: #000 0 0 5px;
+    transition: box-shadow 0.25s ease-in-out;
+}
+
 .show-list li:last-child {
     margin-bottom: 0;
 }
