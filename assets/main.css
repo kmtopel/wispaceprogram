@@ -16,6 +16,17 @@ a {
     cursor: pointer !important;
 }
 
+iframe {
+    min-height: 350px;
+}
+
+@media screen and (min-width: 600px) {
+    iframe {
+        min-height: 600px;
+    }
+    
+}
+
 nav {
     background-color: #b54621;
     color: white;
