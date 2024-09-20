@@ -206,9 +206,6 @@
                             <a target="_blank" href="https://www.instagram.com/wispaceprogram/?locale=ne_NP&hl=ar" title="Instagram"><i class="fab fa-instagram"></i></a>
                             <a target="_blank" href="https://twitter.com/wispaceprogram" title="Twitter"><i class="fab fa-twitter"></i></a>
                             <a target="_blank" href="https://www.tiktok.com/@wisconsin_space_program" title="Tiktok"><i class="fab fa-tiktok"></i></a>
-                            <a target="_blank" href="https://open.spotify.com/artist/1ugQ7E1DCcdx51TULEMrZO?si=UimNL7DsRsiCB8T-CbR9rQ" title="Spotify"><i class="fab fa-spotify"></i></a>
-                            <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/track/she-rides-on" title="Bandcamp"><i class="fab fa-bandcamp"></i></a>
-                            <a target="_blank" href="https://music.apple.com/us/artist/wisconsin-space-program/1758552601" title="Apple Music"><i class="fab fa-apple"></i></a>
                         </nav>
                     </div>
                 </div>
@@ -217,15 +214,41 @@
         <div class="container p-5">
             <div class="row d-flex flex-row-reverse flex-md-row ">
                 <div class="col-md-6">
-                    <iframe class="img-fluid" style="border: 0; width: 100%;height:100%;" 
-                    src="https://bandcamp.com/EmbeddedPlayer/track=3707157449/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless>
-                        <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/track/she-rides-on">She Rides On by Wisconsin Space Program</a>
-                    </iframe>
+                    <div class="audio-player-wrapper">
+                        <img class="img-fluid" src="assets/img/she-rides-on_single.jpg" alt="'She Rides On' single album cover">
+                        <div class="audio-player p-3 js-custom-audio-player d-flex align-items-center">
+                            <button class="play-pause js-play-pause" aria-label="Play/Pause">
+                                <svg class="js-play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                <svg class="js-pause-icon visually-hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle"><circle cx="12" cy="12" r="10"></circle><line x1="10" y1="15" x2="10" y2="9"></line><line x1="14" y1="15" x2="14" y2="9"></line></svg>
+                            </button>
+                            <div class="progress-bar-container js-progress-bar-container position-relative mx-3">
+                                <div class="progress-bar js-progress-bar"></div>
+                                <div class="progress-cursor js-progress-cursor"></div>
+                            </div>
+                            <p class="d-flex mr-3">
+                                <span class="song-time js-current-time">0:00</span>
+                                /
+                                <span class="total-tim js-total-time">0:00</span>
+                            </p>
+                        </div>
+                        <nav class="social-icons pb-3 d-flex flex-column">
+                            <p class="mb-3">Listen,Share,Download</p>
+                            <div class="d-flex flex-wrap">
+                                <a target="_blank" href="https://open.spotify.com/artist/1ugQ7E1DCcdx51TULEMrZO?si=UimNL7DsRsiCB8T-CbR9rQ" title="Spotify"><i class="fab fa-spotify"></i></a>
+                                <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/track/she-rides-on" title="Bandcamp"><i class="fab fa-bandcamp"></i></a>
+                                <a target="_blank" href="https://music.apple.com/us/artist/wisconsin-space-program/1758552601" title="Apple Music"><i class="fab fa-apple"></i></a>
+                            </div>
+                        </nav>
+                        <audio controls class="visually-hidden js-audio-player">
+                            <source src="assets/audio/She Rides On_V2.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
                 </div>
                 <div class="col-md-6 text-left">
                     <h2 class="text-left">Upcoming Shows</h2>
                     <ul class="show-list">
-                        <li class="position-relative">
+                        <li class="position-relative js-show-details" title="Click to view Facebook Event">
                             <span class="show-date">Friday, October 4, 2024 at <time datetime="19:00">7PM</time></span>
                             <p class="show-details">Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program</p>
                             <a target="_blank" class="stretched-link" href="https://www.facebook.com/events/889119459765045/?ref=newsfeed"></a>
@@ -286,6 +309,24 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="container p-5">
+            <div class="row">
+                <div class="col-8 d-flex justify-content-center">
+                    <div class="record-player js-record-player">
+                        <div class="vinyl">
+                            <div class="label">
+                                Wisconsin Space Program "She Rides On"
+                            </div>
+                        </div>
+                        <div class="arm"></div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <img class="album-sleeve" width="320" height="auto" src="assets/img/she-rides-on_single.jpg" alt="'She Rides On' album cover">
+                </div>
+            </div>
+        </div> -->
+            
         <footer>
             <div class="container">
                 <div class="row">
