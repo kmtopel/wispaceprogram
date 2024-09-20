@@ -4,41 +4,52 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
 }
 
-header {
-    background-color: #e97451;
-    color: white;
-    padding: 20px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+a {
+    cursor: pointer !important;
 }
 
-header h1 a {
+nav {
+    background-color: #b54621;
     color: white;
-    text-decoration: none;
+    text-align: center;
 }
 
 h1 {
     font-family: "Psychedelia HM", serif;
     margin: 0;
+    font-size: 72px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 48px;
+    }
+}
+
+main {
+    /* display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex-grow: 1; */
+    flex: 1;
 }
 
 nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
-.social-icons {
-    margin-left: 10px;
-}
-
-.social-icons a {
+.social-icons a, .music-icons a {
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -56,36 +67,6 @@ nav {
     background-color: #666;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-}
-
-.about-us {
-    margin-bottom: 50px;
-}
-
-.about-us h2 {
-    /* font-family: "Psychedelia HM", serif; */
-    font-size: 24px;
-}
-
-.upcoming-shows {
-    margin-bottom: 50px;
-}
-
-.upcoming-shows h2 {
-    /* font-family: "Psychedelia HM", serif; */
-    font-size: 24px;
-}
-
-.band-photo {
-    max-width: 100%;
-    height: auto;
-}
-
 .show-list {
     list-style: none;
     padding: 0;
@@ -95,7 +76,7 @@ nav {
 
 .show-list li {
     margin-bottom: 10px;
-    border-left: 4px solid #333;
+    border-left: 4px solid #b54621;
     padding-left: 10px;
 }
 
@@ -105,9 +86,16 @@ nav {
 
 .show-date {
     font-weight: bold;
-    color: #666;
 }
 
-.show-details {
-    color: #777;
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    top: 100%;
+    bottom: 0;
+    position: relative;
 }
