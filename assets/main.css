@@ -15,10 +15,6 @@ body {
 a:hover {
     cursor: pointer;
 }
-/* 
-a:hover {
-    cursor: default !important;
-} */
 
 iframe {
     min-height: 375px;
@@ -79,9 +75,6 @@ nav {
 
 .show-list {
     list-style: none;
-    /* padding: 0;
-    margin: 0;
-    text-align: left; */
 }
 
 .show-list li {
@@ -107,7 +100,6 @@ footer {
     position: relative;
     top: 100%;
     bottom: 0;
-    position: relative;
 }
 
 footer a {
@@ -119,4 +111,3 @@ a, footer a:hover {
     color: #b54621;
     text-decoration: underline;
 }
-
