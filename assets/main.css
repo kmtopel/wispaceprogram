@@ -28,6 +28,10 @@ nav {
     text-align: center;
 }
 
+a:hover {
+    cursor: pointer;
+}
+
 h1 {
     font-family: "Psychedelia HM", serif;
     margin: 0;
