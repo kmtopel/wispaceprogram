@@ -12,20 +12,17 @@ body {
     font-size: 16px;
 }
 
-a {
-    cursor: pointer !important;
+a:hover {
+    cursor: pointer;
 }
+/* 
+a:hover {
+    cursor: default !important;
+} */
 
 iframe {
     min-height: 375px;
 }
-
-/* @media screen and (min-width: 500px) {
-    iframe {
-        min-height: 500px;
-    }
-    
-} */
 
 @media screen and (min-width: 600px) {
     iframe {
@@ -53,10 +50,6 @@ h1 {
 }
 
 main {
-    /* display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    flex-grow: 1; */
     flex: 1;
 }
 
@@ -86,9 +79,9 @@ nav {
 
 .show-list {
     list-style: none;
-    padding: 0;
+    /* padding: 0;
     margin: 0;
-    text-align: left;
+    text-align: left; */
 }
 
 .show-list li {
@@ -116,3 +109,14 @@ footer {
     bottom: 0;
     position: relative;
 }
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+a, footer a:hover {
+    color: #b54621;
+    text-decoration: underline;
+}
+
