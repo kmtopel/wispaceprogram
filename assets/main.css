@@ -198,6 +198,21 @@ a, footer a:hover {
     border: none;
 }
 
+.play-pause--mobile {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.play-pause--mobile svg {
+    stroke: white;
+    width: auto !important;
+    height: 300px !important;
+    opacity: 0.75;
+}
+
 .play-pause svg {
     stroke: white;
     width: 30px;
