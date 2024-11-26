@@ -337,3 +337,9 @@ a, footer a:hover {
     font-weight: 500 !important;
     cursor: pointer !important;
 }
+
+.sib-form .input_replaced:checked+.checkbox_tick_positive {
+    background-color: #b54621 !important;
+    border: 1px solid #b54621 !important;
+    padding: 2px;
+}
