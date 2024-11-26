@@ -464,3 +464,8 @@ form {
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 }
+
+.merch-item__t-shirt--hover {
+    border-radius: 7px;
+}
+
