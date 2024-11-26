@@ -140,7 +140,7 @@ a, footer a:hover {
     width: 100%;
     min-height: 50px;
     background-color: #b54621;
-    position: relative;
+    /* position: relative; */
     display: flex;
 }
 
@@ -207,7 +207,7 @@ a, footer a:hover {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -75%);
 }
 
 .play-pause--mobile svg {

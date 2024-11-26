@@ -1,26 +1,30 @@
 const audioPlayer = document.querySelector('.js-audio-player');
 const customAudioPlayer = document.querySelector('.js-custom-audio-player');
-const playPauseBtn = customAudioPlayer.querySelector('.js-play-pause');
-const playIcon = playPauseBtn.querySelector('.js-play-icon');
-const pauseIcon = playPauseBtn.querySelector('.js-pause-icon');
+const playPauseBtns = customAudioPlayer.querySelectorAll('.js-play-pause');
 const progressBar = customAudioPlayer.querySelector('.js-progress-bar');
 const progressBarContainer = customAudioPlayer.querySelector('.js-progress-bar-container');
 const progressCursor = customAudioPlayer.querySelector('.js-progress-cursor');
 const currentTimeElement = customAudioPlayer.querySelector('.js-current-time');
 const totalTimeElement = customAudioPlayer.querySelector('.js-total-time');
 
-playPauseBtn.addEventListener('click', () => {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        customAudioPlayer.classList.add('is-playing');
-        playIcon.classList.add('visually-hidden');
-        pauseIcon.classList.remove('visually-hidden');
-    } else {
-        audioPlayer.pause();
-        customAudioPlayer.classList.remove('is-playing');
-        playIcon.classList.remove('visually-hidden');
-        pauseIcon.classList.add('visually-hidden');
-    }
+playPauseBtns.forEach((btn) => {
+    let playIcon = btn.querySelector('.js-play-icon');
+    let pauseIcon = btn.querySelector('.js-pause-icon');
+    console.log(btn);
+    btn.addEventListener('click', () => {
+        console.log('clicked');
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            customAudioPlayer.classList.add('is-playing');
+            playIcon.classList.add('visually-hidden');
+            pauseIcon.classList.remove('visually-hidden');
+        } else {
+            audioPlayer.pause();
+            customAudioPlayer.classList.remove('is-playing');
+            playIcon.classList.remove('visually-hidden');
+            pauseIcon.classList.add('visually-hidden');
+        }
+    });
 });
 
 const updateProgressBar = () => {
