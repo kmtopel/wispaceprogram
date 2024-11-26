@@ -6,13 +6,14 @@ const progressBarContainer = customAudioPlayer.querySelector('.js-progress-bar-c
 const progressCursor = customAudioPlayer.querySelector('.js-progress-cursor');
 const currentTimeElement = customAudioPlayer.querySelector('.js-current-time');
 const totalTimeElement = customAudioPlayer.querySelector('.js-total-time');
+// const volumeBtn = document.querySelector('.js-volume-button');
+// const volumeSlider = document.querySelector('.js-volume-slider');
 
 playPauseBtns.forEach((btn) => {
     let playIcon = btn.querySelector('.js-play-icon');
     let pauseIcon = btn.querySelector('.js-pause-icon');
-    console.log(btn);
+
     btn.addEventListener('click', () => {
-        console.log('clicked');
         if (audioPlayer.paused) {
             audioPlayer.play();
             customAudioPlayer.classList.add('is-playing');

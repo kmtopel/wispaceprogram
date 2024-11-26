@@ -237,14 +237,14 @@
                 </div>
             </div>
         </nav>
-        <div class="container p-3 p-lg-5">
-            <div class="row d-flex flex-row-reverse flex-md-row ">
+        <div class="container py-3">
+            <div class="row d-flex flex-row-reverse flex-md-row">
                 <div class="col-md-6">
                     <div class="audio-player-wrapper">
                         <img class="img-fluid" src="assets/img/she-rides-on_single.jpg"
                             alt="'She Rides On' single album cover">
                         
-                        <div class="audio-player p-3 js-custom-audio-player d-flex flex-column flex-md-row align-items-center">
+                        <div class="audio-player py-3 js-custom-audio-player d-flex flex-column flex-md-row align-items-center">
                             <button class="play-pause js-play-pause" aria-label="Play/Pause">
                                 <svg class="js-play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -260,6 +260,9 @@
                                     <line x1="14" y1="15" x2="14" y2="9"></line>
                                 </svg>
                             </button>
+                            <div>
+                                
+                            </div>
                             <div
                                 class="d-none d-md-flex progress-bar-container js-progress-bar-container position-relative mx-3">
                                 <div class="progress-bar js-progress-bar"></div>
@@ -290,51 +293,90 @@
                         </audio>
                     </div>
                 </div>
-                <div class="col-md-6 text-left pt-5 pt-md-0">
-                    <h2 class="text-left">Upcoming Shows</h2>
-                    <ul class="show-list">
-                        <!-- <li class="position-relative js-show-details" title="Click to view Facebook Event">
-                            <span class="show-date">Friday, October 4, 2024 at <time datetime="19:00">7PM</time></span>
-                            <p class="show-details">Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program</p>
-                            <a target="_blank" class="stretched-link" href="https://www.facebook.com/events/889119459765045/?ref=newsfeed"></a>
-                            <script type="application/ld+json">
-                                {
-                                  "@context": "https://schema.org",
-                                  "@type": "Event",
-                                  "location": {
-                                    "@type": "Place",
-                                    "address": {
-                                      "@type": "PostalAddress",
-                                      "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall",
-                                      "addressLocality": "Milwaukee",
-                                      "addressRegion": "WI",
-                                      "postalCode": "53212",
-                                      "streetAddress": "801 E Clarke St"
-                                    },
-                                    "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall"
-                                  },
-                                  "name": "Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program",
-                                  "startDate": "2024-10-04T19:00:00"
-                                }
-                            </script>
-                        </li> -->
-                        <li>No shows booked currently. Please stay tuned...</li>
-                    </ul>
+                <div class="col-md-6 text-left pt-5 pt-md-0 d-flex flex-column justify-content-between h-auto">
+                    <div class="pb-4">
+                        <h2>Merch Now Available!</h2>
+                        <p>Check out our <a href="https://wisconsinspaceprogram.bandcamp.com/merch">Bandcamp merch store</a> to buy our new shirts.</p>
+                        <!-- <div class="row">
+                            <div class="col-12">
+                                <img class="img-fluid" src="assets/img/wisp-merch.JPG" alt="">
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="merch-item position-relative">
+                                    <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-white-tee-no-bg.png" alt="Wisconsin Space Program White T-Shirt">
+                                    <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/white-tee-closeup.JPG" alt="Wisconsin Space Program White T-Shirt">
+                                    <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/white-t-shirt" class="stretched-link">
+                                        <span class="visually-hidden">Link to purchase White T-Shirt</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="merch-item position-relative">
+                                    <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-black-tee-no-bg.png" alt="Wisconsin Space Program Black T-Shirt">
+                                    <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/black-tee-closeup.JPG" alt="Wisconsin Space Program Black T-Shirt">
+                                    <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/black-t-shirt-2" class="stretched-link">
+                                        <span class="visually-hidden">Link to purchase Black T-Shirt</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="font-size:80%;">* Stickers included with every order.</p>
+                    </div>
+                    <div>
+                        <h2 class="text-left">Upcoming Shows</h2>
+                        <ul class="show-list">
+                            <!-- <li class="position-relative js-show-details" title="Click to view Facebook Event">
+                                <span class="show-date">Friday, October 4, 2024 at <time datetime="19:00">7PM</time></span>
+                                <p class="show-details">Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program</p>
+                                <a target="_blank" class="stretched-link" href="https://www.facebook.com/events/889119459765045/?ref=newsfeed"></a>
+                                <script type="application/ld+json">
+                                    {
+                                      "@context": "https://schema.org",
+                                      "@type": "Event",
+                                      "location": {
+                                        "@type": "Place",
+                                        "address": {
+                                          "@type": "PostalAddress",
+                                          "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall",
+                                          "addressLocality": "Milwaukee",
+                                          "addressRegion": "WI",
+                                          "postalCode": "53212",
+                                          "streetAddress": "801 E Clarke St"
+                                        },
+                                        "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall"
+                                      },
+                                      "name": "Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program",
+                                      "startDate": "2024-10-04T19:00:00"
+                                    }
+                                </script>
+                            </li> -->
+                            <li>No shows booked currently. Please stay tuned...</li>
+                            <li>For booking inquiries, email <a href="mailto:wispaceprogram@gmail.com">wispaceprogram@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2>Press</h2>
+                        <ul class="press-list">
+                            <li>
+                                <a target="_blank"
+                                    href="https://radiomilwaukee.org/local-music/2024-08-01/wisconsin-space-program-milwaukee-band-new-single">MKE
+                                    Music Premiere: Enter a time warp with Wisconsin Space Program</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-12 py-5">
-                    <h2>Press</h2>
-                    <ul>
-                        <li>
-                            <a target="_blank"
-                                href="https://radiomilwaukee.org/local-music/2024-08-01/wisconsin-space-program-milwaukee-band-new-single">MKE
-                                Music Premiere: Enter a time warp with Wisconsin Space Program</a>
-                        </li>
-                    </ul>
-                </div>
+                <!-- <div class="col-12 pt-5">
+                    
+                </div> -->
+                <!-- <div class="col-12 py-5">
+                    
+                </div> -->
             </div>
         </div>
 
-        <div class="container-fluid" style="background:#333;">
+        <div class="container-fluid mt-5" style="background:#333;">
             <div class="container">
                 <div class="sib-form" style="text-align: left;background-color: transparent;">
                     <div id="sib-form-container" class="sib-form-container" style="background-color:transparent;">
@@ -365,10 +407,10 @@
                                 method="POST"
                                 action="https://acd02524.sibforms.com/serve/MUIFAIpzX3qn6lM7xeg68N7y72D4fLtFSpI5Jp6ct6Hy4hCzF5RFg9Xqr4aAOXcHMvdZCw2cEta1DbPtmTNKVVC1NCDFlqCegxWMpyCcmEXvChdlH2DomBG73HT8-Wgb8v57VewTWQJeZdVaMHoDEAzjfPF2s5RtlkMVtzdj6HvioFa-ovRRouAWI6FZafvjhNH9Q1soclPCCDPw"
                                 data-type="subscription">
-                                <h2 class="display-3 pt-4" style="line-height:1rem;font-family:'Psychedelia HM', serif;text-shadow:2px 2px 4px #000;">Newsletter</h2>
+                                <h2 class="display-3 pt-4 text-center text-sm-left" style="line-height:1rem;font-family:'Psychedelia HM', serif;text-shadow:2px 2px 4px #000;">Newsletter</h2>
                                 <div class="form__entry entry_block">
                                     <div class="form__label-row ">
-                                        <label class="entry__label text-white"
+                                        <label class="entry__label text-white text-center text-sm-left"
                                             style="font-weight:700;text-align:left;font-size:14px;text-align:left;font-weight:700;font-family:Helvetica,sans-serif;"
                                             for="EMAIL" 
                                             data-required="*"
@@ -376,7 +418,7 @@
                                             Enter your email address to subscribe
                                         </label>
 
-                                        <div class="d-flex">
+                                        <div class="text-center d-flex flex-column flex-sm-row">
                                             <div class="entry__field w-100 m-0">
                                                 <input 
                                                     style="color:black;"
@@ -389,7 +431,7 @@
                                                     data-required="true"
                                                     required />
                                             </div>
-                                            <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                                            <button class="sib-form-block__button sib-form-block__button-with-loader mt-3 mt-sm-0" form="sib-form" type="submit">
                                                 <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
                                                     viewBox="0 0 512 512">
                                                     <path

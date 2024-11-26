@@ -3,6 +3,11 @@
     src: url("Psychedelia HM.ttf") format("truetype");
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -81,12 +86,12 @@ nav {
     background-color: #666;
 }
 
-.show-list {
+.show-list, .press-list {
     list-style: none;
     padding: 0;
 }
 
-.show-list li {
+.show-list li, .press-list li {
     margin-bottom: 10px;
     border-left: 4px solid #b54621;
     padding-left: 10px;
@@ -97,10 +102,10 @@ nav {
     transition: box-shadow 0.25s ease-in-out;
 }
 
-.show-list li:has(a):hover {
+/* .show-list li:has(a):hover {
     box-shadow: #000 0 0 5px;
     transition: box-shadow 0.25s ease-in-out;
-}
+} */
 
 .show-list li:last-child {
     margin-bottom: 0;
@@ -184,6 +189,73 @@ a, footer a:hover {
     height: 3px;
     background-color: white;
 }
+
+.volume-button {
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+    border: none;
+}
+
+.volume-button:active, .volume-button:focus, .volume-button:hover { 
+    border: none !important;
+    outline: none !important;
+}
+
+.volume-slider {
+    position: absolute;
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px; /* Thin track */
+    background: black; /* Black slider background */
+}
+
+/* Style the thumb */
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 10px; /* Thumb width */
+    height: 100%; /* Full height thumb */
+    background: white; /* White thumb to show value */
+    border: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Firefox styles */
+.volume-slider::-moz-range-track {
+    width: 100%;
+    height: 3px; /* Thin track */
+    background: black; /* Black slider background */
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 10px; /* Thumb width */
+    height: 100%; /* Full height thumb */
+    background: white; /* White thumb to show value */
+    border: none;
+    cursor: pointer;
+}
+
+/* Ensure consistent appearance on all browsers */
+.volume-slider::-ms-track {
+    width: 100%;
+    height: 3px;
+    background: transparent; /* Invisible background to mimic custom track */
+    border-color: transparent;
+    color: transparent;
+}
+.volume-slider::-ms-thumb {
+    width: 10px;
+    height: 100%;
+    background: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 .progress-cursor {
     position: absolute;
@@ -362,4 +434,33 @@ a, footer a:hover {
 
 form {
     
+}
+
+.merch-item > .merch-item__t-shirt {
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.merch-item:hover > .merch-item__t-shirt {
+    /* fade to nothing */
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.merch-item__t-shirt--hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.merch-item:hover > .merch-item__t-shirt--hover {
+    /* fade in */
+    opacity: 1;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.merch-item > .merch-item__t-shirt--hover {
+    /* fade in */
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
 }
