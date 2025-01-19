@@ -469,3 +469,8 @@ form {
     border-radius: 7px;
 }
 
+@media screen and (max-width: 992px) {
+    .embed-responsive {
+        min-height: 500px;
+    }
+}
