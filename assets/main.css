@@ -11,18 +11,16 @@ html, body {
 body {
     margin: 0;
     padding: 0;
-    font-family: "Roboto Mono", monospace;
+    /* font-family: "Roboto Mono", monospace; */
+    font-family: 'Inria Sans','open sans', 'roboto mono', sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 p {
     margin: auto 0;
-}
-
-iframe {
-    min-height: 375px;
+    margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 600px) {

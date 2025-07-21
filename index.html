@@ -12,6 +12,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/main.css">
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta name="title" content="Wisconsin Space Program">
@@ -298,152 +301,167 @@
             </div>
         </nav>
         <div class="container py-5">
-            <div class="row d-flex flex-row-reverse flex-md-row">
-                <div class="col-md-6">
-                    <div class="audio-player-wrapper">
-                        <img class="img-fluid" src="assets/img/Sun In Your Hands-Single Art-6F.jpeg"
-                            alt="'Sun in Your Hands' single album cover">
-                        
-                        <div class="audio-player py-3 js-custom-audio-player d-flex flex-column flex-md-row align-items-center">
-                            <button class="play-pause js-play-pause" aria-label="Play/Pause">
-                                <svg class="js-play-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-play-circle">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <polygon points="10 8 16 12 10 16 10 8"></polygon>
-                                </svg>
-                                <svg class="js-pause-icon visually-hidden" xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause-circle">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="10" y1="15" x2="10" y2="9"></line>
-                                    <line x1="14" y1="15" x2="14" y2="9"></line>
-                                </svg>
-                            </button>
-                            <div>
-                                
-                            </div>
-                            <div
-                                class="d-none d-md-flex progress-bar-container js-progress-bar-container position-relative mx-3">
-                                <div class="progress-bar js-progress-bar"></div>
-                                <div class="progress-cursor js-progress-cursor"></div>
-                            </div>
-                            <p class="d-flex mr-md-3 mx-auto audio-player__time">
-                                <span class="song-time js-current-time">0:00</span>
-                                /
-                                <span class="total-tim js-total-time">0:00</span>
-                            </p>
-                        </div>
-                        <nav class="social-icons pb-3 d-flex flex-column">
-                            <p class="mb-3">Listen,Share,Download</p>
-                            <div class="d-flex flex-wrap">
-                                <a target="_blank"
-                                    href="https://open.spotify.com/artist/1ugQ7E1DCcdx51TULEMrZO?si=UimNL7DsRsiCB8T-CbR9rQ"
-                                    title="Spotify"><i class="fab fa-spotify"></i></a>
-                                <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/track/she-rides-on"
-                                    title="Bandcamp"><i class="fab fa-bandcamp"></i></a>
-                                <a target="_blank"
-                                    href="https://music.apple.com/us/artist/wisconsin-space-program/1758552601"
-                                    title="Apple Music"><i class="fab fa-apple"></i></a>
-                            </div>
-                        </nav>
-                        <audio controls class="visually-hidden js-audio-player">
-                            <source src="assets/audio/Wisconsin Space Program - Sun in Your Hands.wav" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
+            <div class="row">
+                <div class="col d-flex flex-column align-items-center justify-content-center">
+                    <h2 style="font-weight:bold;" class="text-center display-3">Listen to our debut album <br><i>Sun in Your Hands</i></h2>
+                    <iframe class="d-none d-md-block" style="border: 0; width: 700px; height: 820px;" src="https://bandcamp.com/EmbeddedPlayer/album=159668278/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://wisconsinspaceprogram.bandcamp.com/album/sun-in-your-hands">Sun in Your Hands by Wisconsin Space Program</a></iframe>
+                    <iframe class="d-block d-md-none" style="border: 0; width: 350px; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=159668278/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless><a href="https://wisconsinspaceprogram.bandcamp.com/album/sun-in-your-hands">Sun in Your Hands by Wisconsin Space Program</a></iframe>
                 </div>
-                <div class="col-md-6 text-left pt-5 pt-md-0 d-flex flex-column justify-content-between h-auto">
-                    <div class="pb-4">
-                        <h2>Merch Now Available!</h2>
-                        <p>Check out our <a href="https://wisconsinspaceprogram.bandcamp.com/merch">Bandcamp merch store</a> to buy our new shirts.</p>
-                        <!-- <div class="row">
-                            <div class="col-12">
-                                <img class="img-fluid" src="assets/img/wisp-merch.JPG" alt="">
-                            </div>
-                        </div> -->
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="merch-item position-relative">
-                                    <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-white-tee-no-bg.png" alt="Wisconsin Space Program White T-Shirt">
-                                    <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/white-tee-closeup.JPG" alt="Wisconsin Space Program White T-Shirt">
-                                    <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/white-t-shirt" class="stretched-link">
-                                        <span class="visually-hidden">Link to purchase White T-Shirt</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="merch-item position-relative">
-                                    <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-black-tee-no-bg.png" alt="Wisconsin Space Program Black T-Shirt">
-                                    <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/black-tee-closeup.JPG" alt="Wisconsin Space Program Black T-Shirt">
-                                    <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/black-t-shirt-2" class="stretched-link">
-                                        <span class="visually-hidden">Link to purchase Black T-Shirt</span>
-                                    </a>
-                                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col">
+                    <h2>Upcoming Shows</h2>
+                    <script charset="utf-8" src="https://widgetv3.bandsintown.com/main.min.js"></script>
+                    <a class="bit-widget-initializer"
+                        
+                        data-artist-name="id_15600017"
+                        
+                        data-events-to-display=""
+                        data-background-color="rgba(255,255,255,1)"
+                        data-separator-color="rgba(221,221,221,1)"
+                        data-text-color="rgba(33,37,41,1)"
+                        data-font=""
+                        data-auto-style="true"
+                        
+                        data-button-label-capitalization="uppercase"
+                        data-header-capitalization="uppercase"
+                        data-location-capitalization="uppercase"
+                        data-venue-capitalization="uppercase"
+                        data-display-local-dates="false"
+                        data-local-dates-position="aboveUpcoming"
+                        data-display-past-dates="false"
+                        data-display-details="false"
+                        data-display-lineup="false"
+                        data-display-start-time="false"
+                        data-social-share-icon="false"
+                        data-display-limit="all"
+                        
+                        data-date-format="MMM. D, YYYY"
+                        data-date-orientation="horizontal"
+                        data-date-border-color="#4A4A4A"
+                        data-date-border-width="1px"
+                        data-date-capitalization="capitalize"
+                        data-date-border-radius="10px"
+                        
+                        data-event-ticket-cta-size="medium"
+                        data-event-custom-ticket-text=""
+                        data-event-ticket-text="TICKETS"
+                        data-event-ticket-icon="false"
+                        data-event-ticket-cta-text-color="rgba(255,255,255,1)"
+                        data-event-ticket-cta-bg-color="rgba(181,70,33,1)"
+                        data-event-ticket-cta-border-color="rgba(74,74,74,1)"
+                        data-event-ticket-cta-border-width="0px"
+                        data-event-ticket-cta-border-radius="2px"
+                        
+                        data-sold-out-button-text-color="rgba(255,255,255,1)"
+                        data-sold-out-button-background-color="rgba(74,74,74,1)"
+                        data-sold-out-button-border-color="rgba(74,74,74,1)"
+                        data-sold-out-button-clickable="true"
+                        
+                        data-event-rsvp-position="hidden"
+                        data-event-rsvp-cta-size="medium"
+                        data-event-rsvp-only-show-icon="false"
+                        data-event-rsvp-text="RSVP"
+                        data-event-rsvp-icon="false"
+                        data-event-rsvp-cta-text-color="rgba(74,74,74,1)"
+                        data-event-rsvp-cta-bg-color="rgba(255,255,255,1)"
+                        data-event-rsvp-cta-border-color="rgba(74,74,74,1)"
+                        data-event-rsvp-cta-border-width="1px"
+                        data-event-rsvp-cta-border-radius="2px"
+                        
+                        data-follow-section-position="hidden"
+                        data-follow-section-alignment="center"
+                        data-follow-section-header-text="Get updates on new shows, new music, and more"
+                        data-follow-section-cta-size="medium"
+                        data-follow-section-cta-text="FOLLOW"
+                        data-follow-section-cta-icon="false"
+                        data-follow-section-cta-text-color="rgba(255,255,255,1)"
+                        data-follow-section-cta-bg-color="rgba(74,74,74,1)"
+                        data-follow-section-cta-border-color="rgba(74,74,74,1)"
+                        data-follow-section-cta-border-width="0px"
+                        data-follow-section-cta-border-radius="2px"
+                        
+                        data-play-my-city-position="hidden"
+                        data-play-my-city-alignment="center"
+                        data-play-my-city-header-text="Don’t see a show near you?"
+                        data-play-my-city-cta-size="medium"
+                        data-play-my-city-cta-text="REQUEST A SHOW"
+                        data-play-my-city-cta-icon="false"
+                        data-play-my-city-cta-text-color="rgba(255,255,255,1)"
+                        data-play-my-city-cta-bg-color="rgba(74,74,74,1)"
+                        data-play-my-city-cta-border-color="rgba(74,74,74,1)"
+                        data-play-my-city-cta-border-width="0px"
+                        data-play-my-city-cta-border-radius="2px"
+                        
+                        data-optin-font=""
+                        data-optin-text-color=""
+                        data-optin-bg-color=""
+                        data-optin-cta-text-color=""
+                        data-optin-cta-bg-color=""
+                        data-optin-cta-border-width=""
+                        data-optin-cta-border-radius=""
+                        data-optin-cta-border-color=""
+                        
+                        data-language="en"
+                        data-layout-breakpoint="768"
+                        data-app-id=""
+                        data-affil-code=""
+                        data-bit-logo-position="hidden"
+                        data-bit-logo-color="rgba(33,37,41,1)"
+                        
+                        ></a>
+                    <p style="font-size:80%;">For booking inquiries, email <a href="mailto:wispaceprogram@gmail.com">wispaceprogram@gmail.com</a></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <h2>Merch Available</h2>
+                    <p>Check out our <a href="https://wisconsinspaceprogram.bandcamp.com/merch">Bandcamp merch store</a> to buy our shirts and CDs.</p>
+                    <p>Check back shortly as vinyl will be available soon!</p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="merch-item position-relative">
+                                <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-white-tee-no-bg.png" alt="Wisconsin Space Program White T-Shirt">
+                                <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/white-tee-closeup.JPG" alt="Wisconsin Space Program White T-Shirt">
+                                <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/white-t-shirt" class="stretched-link">
+                                    <span class="visually-hidden">Link to purchase White T-Shirt</span>
+                                </a>
                             </div>
                         </div>
-                        <p style="font-size:80%;">* Stickers included with every order.</p>
+                        <div class="col-sm-6">
+                            <div class="merch-item position-relative">
+                                <img class="merch-item__t-shirt img-fluid" src="assets/img/wisp-black-tee-no-bg.png" alt="Wisconsin Space Program Black T-Shirt">
+                                <img class="merch-item__t-shirt--hover img-fluid" src="assets/img/black-tee-closeup.JPG" alt="Wisconsin Space Program Black T-Shirt">
+                                <a target="_blank" href="https://wisconsinspaceprogram.bandcamp.com/merch/black-t-shirt-2" class="stretched-link">
+                                    <span class="visually-hidden">Link to purchase Black T-Shirt</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h2 class="text-left">Upcoming Shows</h2>
-                        <ul class="show-list">
-                            <!-- <li class="position-relative js-show-details" title="Click to view Facebook Event">
-                                <span class="show-date">Friday, October 4, 2024 at <time datetime="19:00">7PM</time></span>
-                                <p class="show-details">Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program</p>
-                                <a target="_blank" class="stretched-link" href="https://www.facebook.com/events/889119459765045/?ref=newsfeed"></a>
-                                <script type="application/ld+json">
-                                    {
-                                      "@context": "https://schema.org",
-                                      "@type": "Event",
-                                      "location": {
-                                        "@type": "Place",
-                                        "address": {
-                                          "@type": "PostalAddress",
-                                          "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall",
-                                          "addressLocality": "Milwaukee",
-                                          "addressRegion": "WI",
-                                          "postalCode": "53212",
-                                          "streetAddress": "801 E Clarke St"
-                                        },
-                                        "name": "Falcon Bowl | Historic Bowling Alley & Banquet Hall"
-                                      },
-                                      "name": "Psych Night @ Falcon Hall w/Offtide, Shadeseeker, and Wisconsin Space Program",
-                                      "startDate": "2024-10-04T19:00:00"
-                                    }
-                                </script>
-                            </li> -->
-                               <li class="position-relative js-show-details" title="Click to view Facebook Event">
-                                <span class="show-date">Saturday, June 14, 2025 at <time datetime="19:00">8PM</time></span>
-                                <p class="show-details">Wisconsin Space Program Album Release with Dead Feathers & Blind Hill at Linneman's Riverwest Inn</p>
-                                <a target="_blank" class="stretched-link" href="https://www.facebook.com/share/16f6VcVptJ/"></a>
-                                <script type="application/ld+json">
-                                   {
-                                        "@context": "https://schema.org",
-                                        "@type": "Event",
-                                        "location": {
-                                            "@type": "Place",
-                                            "address": {
-                                            "@type": "PostalAddress",
-                                            "name": "Linneman's Riverwest Inn",
-                                            "addressLocality": "Milwaukee",
-                                            "addressRegion": "WI",
-                                            "postalCode": "53212",
-                                            "streetAddress": "1001 E Locust St"
-                                            },
-                                            "name": "Linneman's Riverwest Inn"
-                                        },
-                                        "name": "Wisconsin Space Program Album Release with Dead Feathers & Blind Hill at Linneman's Riverwest Inn",
-                                        "startDate": "2025-06-14T19:00:00"
-                                   }
-                                </script>
-                            </li>
-                            <!-- <li>No shows booked currently. Please stay tuned...</li> -->
-                            <li style="font-size:80%;">For booking inquiries, email <a href="mailto:wispaceprogram@gmail.com">wispaceprogram@gmail.com</a></li>
-                        </ul>
-                    </div>
+                    <p style="font-size:80%;">* Stickers included with every order.</p>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col">
+                    <h2>About</h2>
+                    <p>Formed in the winter of 2024, <b>Wisconsin Space Program</b> is a three-piece psych-rock band from Milwaukee, exploring sounds ranging from sixties psych pop to heavy, fuzzed-out stoner metal. Known for their electrifying live performances, fans can expect lush harmonies, unpredictable grooves, and a relentless energy that evokes rock bands from a bygone era.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
                     <div>
                         <h2>Press</h2>
                         <ul class="press-list">
+                            <li>
+                                <a href="https://onmilwaukee.com/articles/love-local-radio-6-27-25">
+                                    Love Local Radio with Wisconsin Space Program
+                                </a>
+                            </li>
                             <li>
                                 <a target="_blank" href="https://milwaukeerecord.com/music/blast-off-with-wisconsin-space-programs-sun-in-your-hands-music-video/">Blast off with Wisconsin Space Program’s “Sun In Your Hands” music video
 
@@ -456,14 +474,6 @@
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row border-bottom border-top">
-                <div class="col">
-                    <p class="py-5">Formed in the winter of 2024, <b>Wisconsin Space Program</b> is a three-piece psych-rock band from Milwaukee, exploring sounds ranging from sixties psych pop to heavy, fuzzed-out stoner metal. Known for their electrifying live performances, fans can expect lush harmonies, unpredictable grooves, and a relentless energy that evokes rock bands from a bygone era.</p>
                 </div>
             </div>
             <div class="row">
@@ -482,14 +492,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <iframe src="https://www.instagram.com/p/DCzQCeGu54f/embed" width="400" height="480" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-                </div>
-            </div>
-        </div> -->
 
         <div class="container-fluid mt-5" style="background:#333;">
             <div class="container">
