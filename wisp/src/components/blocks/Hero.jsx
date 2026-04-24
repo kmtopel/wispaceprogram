@@ -21,15 +21,6 @@ export default function Hero({ heading, subheading, backgroundImage, ctaLabel, c
       )}
 
       <div className="text-center px-6 py-12 sm:py-16 max-w-3xl mx-auto">
-        <Image
-          src="/logos/horizontal-wordmark.svg"
-          alt="WI Space Program"
-          width={600}
-          height={120}
-          className="mx-auto mb-6 w-full h-auto dark:invert"
-          priority
-        />
-
         {heading && (
           <h1 className="text-2xl sm:text-4xl font-bold mb-3">{heading}</h1>
         )}

@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -22,7 +24,19 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="px-6 pt-10 pb-6 max-w-5xl mx-auto">
+          <Link href="/" aria-label="WI Space Program — home" className="block">
+            <Image
+              src="/logos/horizontal-wordmark.svg"
+              alt="WI Space Program"
+              width={600}
+              height={120}
+              className="w-full h-auto dark:invert"
+              priority
+            />
+          </Link>
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );
