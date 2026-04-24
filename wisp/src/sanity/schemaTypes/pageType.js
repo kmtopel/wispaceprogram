@@ -23,7 +23,7 @@ export const pageType = defineType({
       name: "blocks",
       title: "Page blocks",
       type: "array",
-      of: [{ type: "heroBlock" }],
+      of: [{ type: "heroBlock" }, { type: "showsBlock" }],
     }),
   ],
   preview: {

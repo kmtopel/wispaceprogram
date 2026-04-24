@@ -1,7 +1,9 @@
 import Hero from "./blocks/Hero";
+import ShowsBlock from "./blocks/ShowsBlock";
 
 const blockComponents = {
   heroBlock: Hero,
+  showsBlock: ShowsBlock,
 };
 
 export default function BlockRenderer({ blocks }) {
