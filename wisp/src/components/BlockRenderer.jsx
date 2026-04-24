@@ -1,9 +1,11 @@
 import Hero from "./blocks/Hero";
 import ShowsBlock from "./blocks/ShowsBlock";
+import VideoCarousel from "./blocks/VideoCarousel";
 
 const blockComponents = {
   heroBlock: Hero,
   showsBlock: ShowsBlock,
+  videoCarouselBlock: VideoCarousel,
 };
 
 export default function BlockRenderer({ blocks }) {
