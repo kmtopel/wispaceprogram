@@ -1,16 +1,21 @@
-export const postsQuery = `*[_type == "post"] | order(publishedAt desc) {
-  _id,
+// Fetches the site-wide settings singleton.
+export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
   title,
-  slug,
-  mainImage,
-  publishedAt
+  description,
+  socialLinks,
+  footerText
 }`;
 
-export const postQuery = `*[_type == "post" && slug.current == $slug][0] {
+// Fetches a single page by slug, including its blocks with referenced assets.
+export const pageQuery = `*[_type == "page" && slug.current == $slug][0] {
   _id,
   title,
   slug,
-  mainImage,
-  publishedAt,
-  body
+  blocks[] {
+    ...,
+    _type == "heroBlock" => {
+      ...,
+      backgroundImage { ..., asset-> }
+    }
+  }
 }`;
