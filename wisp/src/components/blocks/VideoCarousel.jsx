@@ -19,7 +19,7 @@ const THUMB_GAP = 8; // gap-2
 const useIsoLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-export default function VideoCarousel({ heading, videos }) {
+export default function VideoCarousel({ anchor, heading, videos }) {
   const items = (videos || [])
     .map((v) => ({
       key: v._key,
@@ -52,7 +52,7 @@ export default function VideoCarousel({ heading, videos }) {
   if (items.length === 0) return null;
 
   return (
-    <section className="py-12 sm:py-16">
+    <section id={anchor || undefined} className="py-12 sm:py-16 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-6 mb-6 flex items-end justify-between gap-4">
         {heading ? (
           <h2 className="text-2xl sm:text-3xl font-bold">{heading}</h2>

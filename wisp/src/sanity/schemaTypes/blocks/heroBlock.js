@@ -1,10 +1,12 @@
 import { defineType, defineField } from "sanity";
+import { anchorField } from "./_shared";
 
 export const heroBlock = defineType({
   name: "heroBlock",
   title: "Hero",
   type: "object",
   fields: [
+    anchorField,
     defineField({
       name: "heading",
       title: "Heading",

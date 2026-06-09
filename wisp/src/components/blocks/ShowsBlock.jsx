@@ -13,13 +13,16 @@ function formatDate(iso) {
   }
 }
 
-export default async function ShowsBlock({ heading, limit, emptyMessage }) {
+export default async function ShowsBlock({ anchor, heading, limit, emptyMessage }) {
   const artist = process.env.BANDSINTOWN_ARTIST;
   const allShows = artist ? await getShows(artist) : [];
   const shows = typeof limit === "number" ? allShows.slice(0, limit) : allShows;
 
   return (
-    <section className="px-6 py-12 sm:py-16 max-w-3xl mx-auto w-full">
+    <section
+      id={anchor || undefined}
+      className="px-6 py-12 sm:py-16 max-w-5xl mx-auto w-full scroll-mt-20"
+    >
       {heading && (
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">{heading}</h2>
       )}

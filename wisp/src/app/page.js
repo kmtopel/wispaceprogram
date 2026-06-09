@@ -1,11 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { client } from "@/sanity/client";
+import { client, sanityFetchOptions } from "@/sanity/client";
 import { pageQuery } from "@/sanity/lib/queries";
 import BlockRenderer from "@/components/BlockRenderer";
 
 export default async function Home() {
-  const page = await client.fetch(pageQuery, { slug: "home" });
+  const page = await client.fetch(
+    pageQuery,
+    { slug: "home" },
+    sanityFetchOptions,
+  );
 
   if (!page) {
     return (

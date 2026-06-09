@@ -1,10 +1,27 @@
 import { defineType, defineField } from "sanity";
+import { anchorField } from "./_shared";
+import { getYouTubeThumbnailUrl } from "@/lib/youtube";
+
+// Tiny preview image component used as the Studio list media.
+// Sanity auto-sizes media slots to ~25x25 up to ~40x40 depending on context.
+function YouTubeThumb({ url }) {
+  const src = getYouTubeThumbnailUrl(url);
+  if (!src) return null;
+  return (
+    <img
+      src={src}
+      alt=""
+      style={{ width: "100%", height: "100%", objectFit: "cover" }}
+    />
+  );
+}
 
 export const videoCarouselBlock = defineType({
   name: "videoCarouselBlock",
   title: "Video Carousel",
   type: "object",
   fields: [
+    anchorField,
     defineField({
       name: "heading",
       title: "Heading",
@@ -46,7 +63,11 @@ export const videoCarouselBlock = defineType({
           preview: {
             select: { title: "title", url: "url" },
             prepare({ title, url }) {
-              return { title: title || url, subtitle: "YouTube video" };
+              return {
+                title: title || url || "Video",
+                subtitle: url || "YouTube video",
+                media: url ? <YouTubeThumb url={url} /> : undefined,
+              };
             },
           },
         },
@@ -54,12 +75,17 @@ export const videoCarouselBlock = defineType({
     }),
   ],
   preview: {
-    select: { heading: "heading", videos: "videos" },
-    prepare({ heading, videos }) {
+    select: {
+      heading: "heading",
+      videos: "videos",
+      firstUrl: "videos.0.url",
+    },
+    prepare({ heading, videos, firstUrl }) {
       const count = videos?.length || 0;
       return {
         title: heading || "Video Carousel",
         subtitle: `${count} video${count === 1 ? "" : "s"}`,
+        media: firstUrl ? <YouTubeThumb url={firstUrl} /> : undefined,
       };
     },
   },

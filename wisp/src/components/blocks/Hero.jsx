@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity/image";
 
-export default function Hero({ heading, subheading, backgroundImage, ctaLabel, ctaHref }) {
+export default function Hero({ anchor, heading, subheading, backgroundImage, ctaLabel, ctaHref }) {
   const imageUrl = backgroundImage ? urlFor(backgroundImage).width(2400).url() : null;
 
   return (
-    <section className="flex flex-col">
+    <section id={anchor || undefined} className="flex flex-col scroll-mt-20">
       {imageUrl && (
         <div className="relative w-full aspect-[16/9] sm:aspect-[21/9]">
           <Image
