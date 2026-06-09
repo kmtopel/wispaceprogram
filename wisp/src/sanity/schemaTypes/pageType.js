@@ -27,6 +27,7 @@ export const pageType = defineType({
         { type: "heroBlock" },
         { type: "showsBlock" },
         { type: "videoCarouselBlock" },
+        { type: "bandcampBlock" },
       ],
     }),
   ],
