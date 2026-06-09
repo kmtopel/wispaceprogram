@@ -2,12 +2,14 @@ import Hero from "./blocks/Hero";
 import ShowsBlock from "./blocks/ShowsBlock";
 import VideoCarousel from "./blocks/VideoCarousel";
 import BandcampEmbed from "./blocks/BandcampEmbed";
+import PressBlock from "./blocks/PressBlock";
 
 const blockComponents = {
   heroBlock: Hero,
   showsBlock: ShowsBlock,
   videoCarouselBlock: VideoCarousel,
   bandcampBlock: BandcampEmbed,
+  pressBlock: PressBlock,
 };
 
 export default function BlockRenderer({ blocks }) {

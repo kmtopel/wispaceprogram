@@ -1,3 +1,14 @@
+// Fetches press items, newest first. Optional `$limit`.
+export const pressItemsQuery = `*[_type == "pressItem"] | order(publishedAt desc, _createdAt desc) {
+  _id,
+  title,
+  outlet,
+  url,
+  publishedAt,
+  quote,
+  image { ..., asset-> }
+}`;
+
 // Fetches the site-wide settings singleton.
 export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
   title,

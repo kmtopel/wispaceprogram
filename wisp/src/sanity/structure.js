@@ -1,5 +1,5 @@
 // Customizes the Sanity Studio sidebar structure.
-// Pins Site Settings as a singleton at the top; lists Pages beneath.
+// Pins Site Settings as a singleton at the top; lists document types beneath.
 
 export const structure = (S) =>
   S.list()
@@ -16,7 +16,10 @@ export const structure = (S) =>
         ),
       S.divider(),
       S.documentTypeListItem("page").title("Pages"),
+      S.documentTypeListItem("pressItem").title("Press"),
+      // Fallback: show any other document types we add later.
       ...S.documentTypeListItems().filter(
-        (listItem) => !["siteSettings", "page"].includes(listItem.getId()),
+        (listItem) =>
+          !["siteSettings", "page", "pressItem"].includes(listItem.getId()),
       ),
     ]);

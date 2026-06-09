@@ -28,6 +28,7 @@ export const pageType = defineType({
         { type: "showsBlock" },
         { type: "videoCarouselBlock" },
         { type: "bandcampBlock" },
+        { type: "pressBlock" },
       ],
     }),
   ],
