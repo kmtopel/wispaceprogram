@@ -126,8 +126,20 @@ export default function SiteFooter({ siteSettings }) {
 
       <div className="border-t border-foreground/5">
         <div className="max-w-5xl mx-auto px-6 py-6 text-xs text-foreground/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          {footerText ? <span>{footerText}</span> : <span />}
-          <CookiePreferencesLink />
+          {/* Auto-generated copyright. Year updates at request time;
+              uses the site title from Sanity Settings so a rebrand
+              propagates without code changes. */}
+          <span>
+            © {new Date().getFullYear()}{" "}
+            {siteSettings?.title || "Wisconsin Space Program"}.
+            All rights reserved.
+          </span>
+          <div className="flex items-center gap-4">
+            {footerText && (
+              <span className="text-foreground/40">{footerText}</span>
+            )}
+            <CookiePreferencesLink />
+          </div>
         </div>
       </div>
     </footer>
