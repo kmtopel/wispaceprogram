@@ -1,8 +1,9 @@
 // Customizes the Sanity Studio sidebar structure.
 // Pins Site Settings as a singleton at the top; lists document types beneath.
 
-import { ControlsIcon, RefreshIcon } from "@sanity/icons";
+import { ChartUpwardIcon, ControlsIcon, RefreshIcon } from "@sanity/icons";
 import RefreshShowsTool from "@/sanity/tools/RefreshShowsTool";
+import AnalyticsLink from "@/sanity/tools/AnalyticsLink";
 
 export const structure = (S) =>
   S.list()
@@ -43,6 +44,14 @@ export const structure = (S) =>
                   S.component(RefreshShowsTool)
                     .title("Refresh Shows")
                     .id("refresh-shows"),
+                ),
+              S.listItem()
+                .title("Analytics")
+                .icon(ChartUpwardIcon)
+                .child(
+                  S.component(AnalyticsLink)
+                    .title("Analytics")
+                    .id("analytics-link"),
                 ),
             ]),
         ),
