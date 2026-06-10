@@ -27,12 +27,21 @@ export function getYouTubeId(url) {
 
 export function getYouTubeEmbedUrl(url) {
   const id = getYouTubeId(url);
-  return id ? `https://www.youtube-nocookie.com/embed/${id}` : null;
+  // enablejsapi=1 lets us postMessage pauseVideo when the carousel moves.
+  return id
+    ? `https://www.youtube-nocookie.com/embed/${id}?enablejsapi=1`
+    : null;
 }
 
 // YouTube serves several thumbnail variants for any public video.
-// hqdefault (480x360) is the most reliable — exists for every video.
-export function getYouTubeThumbnailUrl(url) {
+// Quality presets:
+//   "low"  — mqdefault.jpg (320x180, 16:9, always exists)
+//   "high" — maxresdefault.jpg (1280x720, 16:9, only when uploaded HD)
+// "high" should be paired with a fallback to "low" via <img onError> since
+// not every video has a maxresdefault variant.
+export function getYouTubeThumbnailUrl(url, quality = "low") {
   const id = getYouTubeId(url);
-  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
+  if (!id) return null;
+  const file = quality === "high" ? "maxresdefault.jpg" : "mqdefault.jpg";
+  return `https://i.ytimg.com/vi/${id}/${file}`;
 }

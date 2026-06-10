@@ -26,6 +26,34 @@ export function parseBandcampEmbed(input) {
   return null;
 }
 
+// Pull width/height (in px) out of Bandcamp's iframe HTML if the editor pasted
+// the full snippet. Bandcamp sometimes uses width/height attributes and
+// sometimes inline style. Returns { width, height } or {} if neither variant
+// matches. These are the dimensions Bandcamp considers "native" for the
+// specific embed variant the editor picked in their Share dialog.
+export function parseEmbedNativeDimensions(input) {
+  if (!input || typeof input !== "string") return {};
+
+  // Attribute form: width="350" height="470"
+  const attrW = input.match(/\bwidth\s*=\s*["']?(\d+)/i);
+  const attrH = input.match(/\bheight\s*=\s*["']?(\d+)/i);
+  if (attrW && attrH) {
+    return { width: Number(attrW[1]), height: Number(attrH[1]) };
+  }
+
+  // Style form: style="...width: 350px; height: 470px;..."
+  const styleMatch = input.match(/style\s*=\s*["']([^"']+)["']/i);
+  if (styleMatch) {
+    const styleW = styleMatch[1].match(/width\s*:\s*(\d+)px/i);
+    const styleH = styleMatch[1].match(/height\s*:\s*(\d+)px/i);
+    if (styleW && styleH) {
+      return { width: Number(styleW[1]), height: Number(styleH[1]) };
+    }
+  }
+
+  return {};
+}
+
 function normalizeUrl(url) {
   // Force https and strip any whitespace that sneaks in.
   return url.replace(/^http:/, "https:").replace(/\s+/g, "");
