@@ -1,8 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
 import { urlFor } from "@/sanity/image";
+import SectionHeader from "@/components/SectionHeader";
+import Buttons from "@/components/Buttons";
 
-export default function Hero({ anchor, heading, subheading, backgroundImage, ctaLabel, ctaHref }) {
+export default function Hero({
+  anchor,
+  header,
+  backgroundImage,
+  ctaButtons,
+  ctaButtonsAlign,
+}) {
   const imageUrl = backgroundImage ? urlFor(backgroundImage).width(2400).url() : null;
 
   return (
@@ -20,24 +27,18 @@ export default function Hero({ anchor, heading, subheading, backgroundImage, cta
         </div>
       )}
 
-      <div className="text-center px-6 py-12 sm:py-16 max-w-3xl mx-auto">
-        {heading && (
-          <h1 className="text-2xl sm:text-4xl font-bold mb-3">{heading}</h1>
-        )}
-
-        {subheading && (
-          <p className="text-lg sm:text-xl text-foreground/70 mb-6">{subheading}</p>
-        )}
-
-        {ctaLabel && ctaHref && (
-          <Link
-            href={ctaHref}
-            className="inline-block px-6 py-3 bg-foreground text-background font-medium rounded-full hover:opacity-90 transition-opacity"
-          >
-            {ctaLabel}
-          </Link>
-        )}
-      </div>
+      {(header || ctaButtons?.length > 0) && (
+        <div className="px-6 py-12 sm:py-16 max-w-5xl mx-auto w-full">
+          {header && <SectionHeader value={header} />}
+          {ctaButtons?.length > 0 && (
+            <Buttons
+              items={ctaButtons}
+              align={ctaButtonsAlign || "center"}
+              className="mt-8"
+            />
+          )}
+        </div>
+      )}
     </section>
   );
 }

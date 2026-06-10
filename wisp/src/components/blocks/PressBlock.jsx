@@ -2,6 +2,8 @@ import Image from "next/image";
 import { client, sanityFetchOptions } from "@/sanity/client";
 import { pressItemsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
+import SectionHeader from "@/components/SectionHeader";
+import Buttons from "@/components/Buttons";
 
 function formatDate(iso) {
   if (!iso) return null;
@@ -18,9 +20,11 @@ function formatDate(iso) {
 
 export default async function PressBlock({
   anchor,
-  heading,
+  header,
   limit,
   emptyMessage,
+  ctaButtons,
+  ctaButtonsAlign,
 }) {
   const all = await client.fetch(pressItemsQuery, {}, sanityFetchOptions);
   const items = typeof limit === "number" ? all.slice(0, limit) : all;
@@ -30,8 +34,10 @@ export default async function PressBlock({
       id={anchor || undefined}
       className="px-6 py-12 sm:py-16 max-w-5xl mx-auto w-full scroll-mt-20"
     >
-      {heading && (
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6">{heading}</h2>
+      {header && (
+        <div className="mb-6">
+          <SectionHeader value={header} />
+        </div>
       )}
 
       {items.length === 0 ? (
@@ -92,6 +98,14 @@ export default async function PressBlock({
             );
           })}
         </ul>
+      )}
+
+      {ctaButtons?.length > 0 && (
+        <Buttons
+          items={ctaButtons}
+          align={ctaButtonsAlign || "center"}
+          className="mt-10"
+        />
       )}
     </section>
   );

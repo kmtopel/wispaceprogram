@@ -1,5 +1,5 @@
 import { defineType, defineField } from "sanity";
-import { anchorField } from "./_shared";
+import { anchorField, ctaButtonsField, ctaButtonsAlignField } from "./_shared";
 
 export const pressBlock = defineType({
   name: "pressBlock",
@@ -8,10 +8,9 @@ export const pressBlock = defineType({
   fields: [
     anchorField,
     defineField({
-      name: "heading",
-      title: "Heading",
-      type: "string",
-      initialValue: "Press",
+      name: "header",
+      title: "Header",
+      type: "sectionHeader",
     }),
     defineField({
       name: "limit",
@@ -26,9 +25,11 @@ export const pressBlock = defineType({
       type: "string",
       description: 'Default: "No press items yet."',
     }),
+    ctaButtonsField,
+    ctaButtonsAlignField,
   ],
   preview: {
-    select: { heading: "heading", limit: "limit" },
+    select: { heading: "header.heading", limit: "limit" },
     prepare({ heading, limit }) {
       return {
         title: heading || "Press",

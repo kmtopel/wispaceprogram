@@ -1,6 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { parseBandcampEmbed } from "@/lib/bandcamp";
-import { anchorField } from "./_shared";
+import { anchorField, ctaButtonsField, ctaButtonsAlignField } from "./_shared";
 
 export const bandcampBlock = defineType({
   name: "bandcampBlock",
@@ -9,9 +9,9 @@ export const bandcampBlock = defineType({
   fields: [
     anchorField,
     defineField({
-      name: "heading",
-      title: "Heading",
-      type: "string",
+      name: "header",
+      title: "Header",
+      type: "sectionHeader",
     }),
     defineField({
       name: "embedCode",
@@ -33,14 +33,13 @@ export const bandcampBlock = defineType({
       title: "Display size",
       type: "string",
       description:
-        "How wide the player renders on the page. Bandcamp's native width is 350px; larger sizes scale the embed up.",
-      initialValue: "full",
+        "How wide the player renders. Bandcamp's artwork players are fixed internally — for a truly fluid width, grab the Slim variant from Bandcamp's Share/Embed dialog.",
+      initialValue: "large",
       options: {
         list: [
           { title: "Small (350px)", value: "small" },
           { title: "Medium (500px)", value: "medium" },
           { title: "Large (700px)", value: "large" },
-          { title: "Full width", value: "full" },
         ],
         layout: "radio",
       },
@@ -49,11 +48,18 @@ export const bandcampBlock = defineType({
       name: "caption",
       title: "Caption",
       type: "string",
-      description: "Optional short label shown beneath the player.",
+      description:
+        "Optional short label shown beneath the player. Basic markup allowed: <br>, <i>/<em>, <b>/<strong>, <u>, <small>.",
     }),
+    ctaButtonsField,
+    ctaButtonsAlignField,
   ],
   preview: {
-    select: { heading: "heading", caption: "caption", embedCode: "embedCode" },
+    select: {
+      heading: "header.heading",
+      caption: "caption",
+      embedCode: "embedCode",
+    },
     prepare({ heading, caption, embedCode }) {
       const ok = !!parseBandcampEmbed(embedCode);
       return {

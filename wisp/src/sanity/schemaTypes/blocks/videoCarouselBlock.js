@@ -1,5 +1,5 @@
 import { defineType, defineField } from "sanity";
-import { anchorField } from "./_shared";
+import { anchorField, ctaButtonsField, ctaButtonsAlignField } from "./_shared";
 import { getYouTubeThumbnailUrl } from "@/lib/youtube";
 
 // Tiny preview image component used as the Studio list media.
@@ -23,9 +23,9 @@ export const videoCarouselBlock = defineType({
   fields: [
     anchorField,
     defineField({
-      name: "heading",
-      title: "Heading",
-      type: "string",
+      name: "header",
+      title: "Header",
+      type: "sectionHeader",
     }),
     defineField({
       name: "videos",
@@ -73,10 +73,12 @@ export const videoCarouselBlock = defineType({
         },
       ],
     }),
+    ctaButtonsField,
+    ctaButtonsAlignField,
   ],
   preview: {
     select: {
-      heading: "heading",
+      heading: "header.heading",
       videos: "videos",
       firstUrl: "videos.0.url",
     },

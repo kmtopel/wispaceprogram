@@ -7,10 +7,12 @@ const REVALIDATE_SECONDS = 60 * 60; // 1 hour
 export const SHOWS_CACHE_TAG = "bandsintown-shows";
 
 /**
- * Fetches upcoming events for an artist.
- * Returns an array (possibly empty). Throws on network/API failure.
+ * Fetches events for an artist.
+ * @param {string} artist — Bandsintown artist name
+ * @param {"upcoming"|"past"|"all"} [date] — which events to fetch
+ * Returns an array (possibly empty). Soft-fails on errors.
  */
-export async function getShows(artist) {
+export async function getShows(artist, date = "upcoming") {
   if (!artist) return [];
 
   const apiKey = process.env.BANDSINTOWN_API_KEY;
@@ -21,7 +23,7 @@ export async function getShows(artist) {
 
   const url = `${API_BASE}/artists/${encodeURIComponent(
     artist,
-  )}/events?app_id=${encodeURIComponent(apiKey)}&date=upcoming`;
+  )}/events?app_id=${encodeURIComponent(apiKey)}&date=${encodeURIComponent(date)}`;
 
   const res = await fetch(url, {
     next: { revalidate: REVALIDATE_SECONDS, tags: [SHOWS_CACHE_TAG] },

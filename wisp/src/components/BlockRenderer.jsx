@@ -1,15 +1,23 @@
 import Hero from "./blocks/Hero";
 import ShowsBlock from "./blocks/ShowsBlock";
 import VideoCarousel from "./blocks/VideoCarousel";
+import YouTubeEmbed from "./blocks/YouTubeEmbed";
 import BandcampEmbed from "./blocks/BandcampEmbed";
 import PressBlock from "./blocks/PressBlock";
+import TextBlock from "./blocks/TextBlock";
+import NewsletterBlock from "./blocks/NewsletterBlock";
+import SectionHeaderBlock from "./blocks/SectionHeaderBlock";
 
 const blockComponents = {
+  sectionHeaderBlock: SectionHeaderBlock,
   heroBlock: Hero,
   showsBlock: ShowsBlock,
   videoCarouselBlock: VideoCarousel,
+  youtubeBlock: YouTubeEmbed,
   bandcampBlock: BandcampEmbed,
   pressBlock: PressBlock,
+  textBlock: TextBlock,
+  newsletterBlock: NewsletterBlock,
 };
 
 export default function BlockRenderer({ blocks }) {
