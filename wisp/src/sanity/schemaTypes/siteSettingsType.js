@@ -256,7 +256,6 @@ export const siteSettingsType = defineType({
           name: "heading",
           title: "Heading",
           type: "string",
-          initialValue: "Join the mailing list",
           description:
             "Basic markup allowed: <br>, <i>/<em>, <b>/<strong>, <u>, <small>.",
         }),
@@ -264,27 +263,22 @@ export const siteSettingsType = defineType({
           name: "subheading",
           title: "Subheading",
           type: "string",
-          initialValue:
-            "Show announcements, new releases, occasional dispatches. No spam.",
           description: "Same markup rules as the heading.",
         }),
         defineField({
           name: "buttonLabel",
           title: "Button label",
           type: "string",
-          initialValue: "Subscribe",
         }),
         defineField({
           name: "placeholder",
           title: "Email placeholder",
           type: "string",
-          initialValue: "you@example.com",
         }),
         defineField({
           name: "successMessage",
           title: "Success message",
           type: "string",
-          initialValue: "Thanks — you're on the list.",
           description: "Shown after a successful signup.",
         }),
       ],
