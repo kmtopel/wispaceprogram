@@ -78,28 +78,28 @@ export default function SiteFooter({ siteSettings }) {
   const socialLinks = siteSettings?.socialLinks || [];
   const footerText = siteSettings?.footerText;
   // Newsletter copy is editable in Site Settings → Footer newsletter signup.
-  // Fall back to sensible defaults if a field is left blank.
+  // No fallback copy — editors get the empty state if they leave fields blank.
   const newsletter = siteSettings?.footerNewsletter || {};
-  const heading = newsletter.heading || "Join the mailing list";
-  const subheading =
-    newsletter.subheading ||
-    "Show announcements, new releases, occasional dispatches. No spam.";
 
   return (
     <footer className="mt-16 sm:mt-24 border-t border-foreground/10">
       <div className="max-w-5xl mx-auto px-6 py-12 sm:py-16 flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
         {/* Signup */}
         <div className="flex-1 max-w-md">
-          <RichString
-            as="h2"
-            value={heading}
-            className="text-xl sm:text-2xl font-bold mb-2"
-          />
-          <RichString
-            as="p"
-            value={subheading}
-            className="text-sm text-foreground/70 mb-4"
-          />
+          {newsletter.heading && (
+            <RichString
+              as="h2"
+              value={newsletter.heading}
+              className="text-xl sm:text-2xl font-bold mb-2"
+            />
+          )}
+          {newsletter.subheading && (
+            <RichString
+              as="p"
+              value={newsletter.subheading}
+              className="text-sm text-foreground/70 mb-4"
+            />
+          )}
           <NewsletterForm
             compact
             buttonLabel={newsletter.buttonLabel}
