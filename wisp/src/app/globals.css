@@ -28,3 +28,16 @@ h1, h2, h3, h4, h5, h6 {
   /* Slightly tighten leading on display type. */
   line-height: 1.15;
 }
+
+/* Gentle fade-in for the cookie banner so it doesn't jolt the eye on
+   first paint. */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

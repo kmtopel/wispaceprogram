@@ -7,20 +7,20 @@ import {
   setConsent,
 } from "@/lib/consent";
 
-// Visible only when consent hasn't been recorded yet (or after the user
-// clicks the footer "Cookie preferences" link to reopen it). Sticky bar
-// at the bottom of the viewport with Accept / Reject actions.
+// Subtle bottom-right notice that appears on the visitor's first visit.
+// Opt-out model: analytics is on by default; this just tells the visitor
+// and offers a quick way to decline. Dismissing the banner (or hitting
+// "OK") implicitly accepts; the only way to disable tracking is the
+// explicit "Opt out" action.
 export default function ConsentBanner() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Only render after mount — SSR doesn't know the visitor's choice,
-  // and we don't want to flash the banner for returning visitors.
   useEffect(() => {
     setMounted(true);
+    // Show on first visit (no localStorage entry) or after the visitor
+    // resets via the footer "Cookie preferences" link.
     setOpen(readConsent() === null);
-    // Listen for clearConsent() being called from elsewhere (e.g., the
-    // footer "Cookie preferences" link), so the banner can reopen.
     const onChange = (e) => setOpen(e.detail === null);
     window.addEventListener(CONSENT_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_EVENT, onChange);
@@ -41,35 +41,26 @@ export default function ConsentBanner() {
     <div
       role="dialog"
       aria-labelledby="consent-title"
-      className="fixed inset-x-0 bottom-0 z-50 p-4 sm:p-6"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 max-w-xs sm:max-w-sm bg-background/95 backdrop-blur-sm border border-foreground/15 rounded-lg shadow-lg p-4 text-sm animate-[fadeIn_0.4s_ease-out]"
     >
-      <div className="max-w-3xl mx-auto bg-background border border-foreground/15 rounded-lg shadow-xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center gap-4">
-        <div className="flex-1 text-sm">
-          <p id="consent-title" className="font-semibold mb-1">
-            Cookies
-          </p>
-          <p className="text-foreground/70 leading-relaxed">
-            We use Google Analytics to understand how visitors find and use
-            the site. Nothing about you personally — just anonymized
-            patterns. You can decline; the site works the same either way.
-          </p>
-        </div>
-        <div className="flex gap-2 shrink-0">
-          <button
-            type="button"
-            onClick={handleReject}
-            className="px-4 py-2 rounded-full text-sm font-medium border border-foreground/20 hover:bg-foreground/5 transition-colors"
-          >
-            Decline
-          </button>
-          <button
-            type="button"
-            onClick={handleAccept}
-            className="px-4 py-2 rounded-full text-sm font-medium bg-foreground text-background hover:opacity-90 transition-opacity"
-          >
-            Accept
-          </button>
-        </div>
+      <p id="consent-title" className="text-foreground/80 leading-snug">
+        We use cookies for anonymous analytics. By continuing, you accept.
+      </p>
+      <div className="mt-3 flex items-center justify-end gap-3">
+        <button
+          type="button"
+          onClick={handleReject}
+          className="text-xs text-foreground/60 hover:text-foreground underline underline-offset-2 transition-colors"
+        >
+          Opt out
+        </button>
+        <button
+          type="button"
+          onClick={handleAccept}
+          className="text-xs font-medium px-3 py-1.5 rounded-full bg-foreground text-background hover:opacity-90 transition-opacity"
+        >
+          OK
+        </button>
       </div>
     </div>
   );

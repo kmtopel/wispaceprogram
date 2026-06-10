@@ -6,22 +6,22 @@ import { CONSENT_EVENT, readConsent } from "@/lib/consent";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-// Renders Google Analytics ONLY when:
-//   1) NEXT_PUBLIC_GA_ID is configured
-//   2) The visitor has explicitly accepted cookies
+// Loads Google Analytics by default (opt-out model). Only suppresses
+// tracking when the visitor has explicitly opted out — pre-decision or
+// active accept both load GA.
 //
-// Subscribes to the custom CONSENT_EVENT so the banner can flip
-// consent state at runtime without a page reload.
+// Subscribes to CONSENT_EVENT so flipping the choice via the banner /
+// footer link takes effect immediately, no page reload required.
 export default function Analytics() {
-  const [accepted, setAccepted] = useState(false);
+  const [optedOut, setOptedOut] = useState(false);
 
   useEffect(() => {
-    setAccepted(readConsent() === "accepted");
-    const onChange = (e) => setAccepted(e.detail === "accepted");
+    setOptedOut(readConsent() === "rejected");
+    const onChange = (e) => setOptedOut(e.detail === "rejected");
     window.addEventListener(CONSENT_EVENT, onChange);
     return () => window.removeEventListener(CONSENT_EVENT, onChange);
   }, []);
 
-  if (!GA_ID || !accepted) return null;
+  if (!GA_ID || optedOut) return null;
   return <GoogleAnalytics gaId={GA_ID} />;
 }
