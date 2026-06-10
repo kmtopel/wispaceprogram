@@ -13,6 +13,21 @@ export const pressItemsQuery = `*[_type == "pressItem"] | order(publishedAt desc
 export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSettings"][0] {
   title,
   description,
+  splashLogo { ..., asset-> },
+  desktopLogo { ..., asset-> },
+  mobileLogo { ..., asset-> },
+  navItems[] {
+    _key,
+    _type,
+    label,
+    // Internal page references — pull slug for routing
+    page->{ slug },
+    // Anchor link
+    anchor,
+    // External link
+    url,
+    newTab
+  },
   socialLinks,
   footerText
 }`;
@@ -27,6 +42,13 @@ export const pageQuery = `*[_type == "page" && slug.current == $slug][0] {
     _type == "heroBlock" => {
       ...,
       backgroundImage { ..., asset-> }
+    },
+    _type == "textBlock" => {
+      ...,
+      body[] {
+        ...,
+        _type == "image" => { ..., asset-> }
+      }
     }
   }
 }`;

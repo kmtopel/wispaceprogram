@@ -11,10 +11,13 @@ export const client = createClient({
   useCdn: !isDev,
 });
 
-// Default fetch options — revalidate every 60s in production, no caching in dev.
-// Tag all Sanity queries so we can invalidate them via webhook later.
+// Default fetch options — revalidate every 60s in production, 10s in dev.
+// Dev used to be revalidate:0 (no caching) which made every page navigation
+// re-query Sanity's live API and dominated TTFB. 10s is short enough that
+// edits show up promptly after a refresh, long enough that page-to-page nav
+// feels snappy. Tag all queries so we can invalidate them via webhook later.
 export const sanityFetchOptions = {
   next: isDev
-    ? { revalidate: 0 }
+    ? { revalidate: 10, tags: ["sanity"] }
     : { revalidate: 60, tags: ["sanity"] },
 };
