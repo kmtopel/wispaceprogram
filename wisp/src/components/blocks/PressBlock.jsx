@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { client, sanityFetchOptions } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/live";
 import { pressItemsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
 import SectionHeader from "@/components/SectionHeader";
@@ -26,7 +26,7 @@ export default async function PressBlock({
   ctaButtons,
   ctaButtonsAlign,
 }) {
-  const all = await client.fetch(pressItemsQuery, {}, sanityFetchOptions);
+  const { data: all } = await sanityFetch({ query: pressItemsQuery });
   const items = typeof limit === "number" ? all.slice(0, limit) : all;
 
   return (

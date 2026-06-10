@@ -1,6 +1,6 @@
 // Root layout: shared header/footer, fonts, and site-wide metadata.
 import { Fraunces, Inter_Tight } from "next/font/google";
-import { client, sanityFetchOptions } from "@/sanity/client";
+import { sanityFetch, SanityLive } from "@/sanity/live";
 import { siteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
 import SiteHeader from "@/components/SiteHeader";
@@ -37,11 +37,9 @@ const DEFAULT_DESKTOP_LOGO = "/logos/horizontal-wordmark.svg";
 const DEFAULT_MOBILE_LOGO = "/logos/horizontal-monogram.svg";
 
 export default async function RootLayout({ children }) {
-  const settings = await client.fetch(
-    siteSettingsQuery,
-    {},
-    sanityFetchOptions,
-  );
+  const { data: settings } = await sanityFetch({
+    query: siteSettingsQuery,
+  });
 
   const splashLogoUrl = settings?.splashLogo
     ? urlFor(settings.splashLogo).url()
@@ -80,6 +78,9 @@ export default async function RootLayout({ children }) {
         <SiteFooter siteSettings={settings} />
         <ConsentBanner />
         <Analytics />
+        {/* Subscribes the visitor's browser to Sanity's live API; when
+            content changes, the affected RSCs re-render without a reload. */}
+        <SanityLive />
       </body>
     </html>
   );
