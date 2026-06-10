@@ -6,9 +6,12 @@ export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: "2024-01-01",
-  // CDN is fast but has ~1min lag. Off in dev so edits show immediately;
-  // in production we use the CDN for speed and revalidate on a short TTL.
-  useCdn: !isDev,
+  // CDN is off in both dev and prod. Reason: we already cache at the
+  // Next.js fetch layer (10s/60s revalidate + the webhook-driven manual
+  // revalidate). Stacking Sanity's CDN cache on top means rapid edits
+  // can still hit stale data because the CDN has its own ~60s window
+  // that the webhook doesn't invalidate.
+  useCdn: false,
 });
 
 // Default fetch options — revalidate every 60s in production, 10s in dev.
