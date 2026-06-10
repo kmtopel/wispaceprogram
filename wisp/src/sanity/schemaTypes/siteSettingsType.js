@@ -241,12 +241,6 @@ export const siteSettingsType = defineType({
       ],
     }),
     defineField({
-      name: "footerText",
-      title: "Footer text",
-      type: "string",
-      description: "Shown in the site footer. Supports plain text only.",
-    }),
-    defineField({
       name: "footerNewsletter",
       title: "Footer newsletter signup",
       type: "object",

@@ -76,7 +76,6 @@ function SocialIcon({ platform }) {
 // avoid an extra Sanity fetch.
 export default function SiteFooter({ siteSettings }) {
   const socialLinks = siteSettings?.socialLinks || [];
-  const footerText = siteSettings?.footerText;
   // Newsletter copy is editable in Site Settings → Footer newsletter signup.
   // No fallback copy — editors get the empty state if they leave fields blank.
   const newsletter = siteSettings?.footerNewsletter || {};
@@ -151,12 +150,7 @@ export default function SiteFooter({ siteSettings }) {
             {siteSettings?.title || "Wisconsin Space Program"}.
             All rights reserved.
           </span>
-          <div className="flex items-center gap-4">
-            {footerText && (
-              <span className="text-foreground/40">{footerText}</span>
-            )}
-            <CookiePreferencesLink />
-          </div>
+          <CookiePreferencesLink />
         </div>
       </div>
     </footer>

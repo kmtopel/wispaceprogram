@@ -29,7 +29,6 @@ export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSetti
     newTab
   },
   socialLinks,
-  footerText,
   footerNewsletter
 }`;
 
