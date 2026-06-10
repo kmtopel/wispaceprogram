@@ -6,6 +6,7 @@ export default function NewsletterBlock({
   anchor,
   header,
   buttonLabel,
+  placeholder,
   successMessage,
   ctaButtons,
   ctaButtonsAlign,
@@ -23,6 +24,7 @@ export default function NewsletterBlock({
 
       <NewsletterForm
         buttonLabel={buttonLabel}
+        placeholder={placeholder}
         successMessage={successMessage}
       />
 

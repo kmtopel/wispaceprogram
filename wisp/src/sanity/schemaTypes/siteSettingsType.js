@@ -246,6 +246,49 @@ export const siteSettingsType = defineType({
       type: "string",
       description: "Shown in the site footer. Supports plain text only.",
     }),
+    defineField({
+      name: "footerNewsletter",
+      title: "Footer newsletter signup",
+      type: "object",
+      description: "Copy for the newsletter form in the site footer.",
+      fields: [
+        defineField({
+          name: "heading",
+          title: "Heading",
+          type: "string",
+          initialValue: "Join the mailing list",
+          description:
+            "Basic markup allowed: <br>, <i>/<em>, <b>/<strong>, <u>, <small>.",
+        }),
+        defineField({
+          name: "subheading",
+          title: "Subheading",
+          type: "string",
+          initialValue:
+            "Show announcements, new releases, occasional dispatches. No spam.",
+          description: "Same markup rules as the heading.",
+        }),
+        defineField({
+          name: "buttonLabel",
+          title: "Button label",
+          type: "string",
+          initialValue: "Subscribe",
+        }),
+        defineField({
+          name: "placeholder",
+          title: "Email placeholder",
+          type: "string",
+          initialValue: "you@example.com",
+        }),
+        defineField({
+          name: "successMessage",
+          title: "Success message",
+          type: "string",
+          initialValue: "Thanks — you're on the list.",
+          description: "Shown after a successful signup.",
+        }),
+      ],
+    }),
   ],
   preview: {
     prepare() {

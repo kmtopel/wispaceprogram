@@ -29,7 +29,8 @@ export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSetti
     newTab
   },
   socialLinks,
-  footerText
+  footerText,
+  footerNewsletter
 }`;
 
 // Fetches a single page by slug, including its blocks with referenced assets.

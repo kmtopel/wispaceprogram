@@ -19,6 +19,12 @@ export const newsletterBlock = defineType({
       initialValue: "Subscribe",
     }),
     defineField({
+      name: "placeholder",
+      title: "Email placeholder",
+      type: "string",
+      initialValue: "you@example.com",
+    }),
+    defineField({
       name: "successMessage",
       title: "Success message",
       type: "string",

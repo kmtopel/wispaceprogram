@@ -32,12 +32,17 @@ function loadRecaptcha() {
 // site footer — visual styling lives here, the surrounding container's
 // className handles layout/positioning.
 export default function NewsletterForm({
-  buttonLabel = "Subscribe",
-  successMessage = "Thanks — you're on the list.",
-  placeholder = "you@example.com",
+  buttonLabel,
+  successMessage,
+  placeholder,
   // Compact mode flattens to a single row (input + button side by side).
   compact = false,
 }) {
+  // Use `||` so empty strings from Sanity also fall back to defaults
+  // (parameter defaults only kick in for undefined, not empty string).
+  const labelText = buttonLabel || "Subscribe";
+  const successText = successMessage || "Thanks — you're on the list.";
+  const placeholderText = placeholder || "you@example.com";
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState("");
@@ -106,7 +111,7 @@ export default function NewsletterForm({
   if (status === "success") {
     return (
       <p className="text-sm text-foreground/80" role="status">
-        {successMessage}
+        {successText}
       </p>
     );
   }
@@ -128,7 +133,7 @@ export default function NewsletterForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onFocus={handleFocus}
-          placeholder={placeholder}
+          placeholder={placeholderText}
           autoComplete="email"
           disabled={status === "submitting"}
           className="flex-1 px-4 py-2.5 rounded-full bg-foreground/5 border border-foreground/20 text-foreground placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-foreground/30 disabled:opacity-50"
@@ -138,7 +143,7 @@ export default function NewsletterForm({
           disabled={status === "submitting"}
           className="px-5 py-2.5 rounded-full bg-foreground text-background font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
         >
-          {status === "submitting" ? "…" : buttonLabel}
+          {status === "submitting" ? "…" : labelText}
         </button>
       </div>
 

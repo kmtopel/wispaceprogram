@@ -1,5 +1,6 @@
 import NewsletterForm from "@/components/NewsletterForm";
 import CookiePreferencesLink from "@/components/CookiePreferencesLink";
+import RichString from "@/components/RichString";
 
 // Brand glyphs for the social link row. SVG path data simplified to single
 // `<path>` shapes so we can swap fill via currentColor and keep the markup
@@ -76,19 +77,35 @@ function SocialIcon({ platform }) {
 export default function SiteFooter({ siteSettings }) {
   const socialLinks = siteSettings?.socialLinks || [];
   const footerText = siteSettings?.footerText;
+  // Newsletter copy is editable in Site Settings → Footer newsletter signup.
+  // Fall back to sensible defaults if a field is left blank.
+  const newsletter = siteSettings?.footerNewsletter || {};
+  const heading = newsletter.heading || "Join the mailing list";
+  const subheading =
+    newsletter.subheading ||
+    "Show announcements, new releases, occasional dispatches. No spam.";
 
   return (
     <footer className="mt-16 sm:mt-24 border-t border-foreground/10">
       <div className="max-w-5xl mx-auto px-6 py-12 sm:py-16 flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
         {/* Signup */}
         <div className="flex-1 max-w-md">
-          <h2 className="text-xl sm:text-2xl font-bold mb-2">
-            Join the mailing list
-          </h2>
-          <p className="text-sm text-foreground/70 mb-4">
-            Show announcements, new releases, occasional dispatches. No spam.
-          </p>
-          <NewsletterForm compact />
+          <RichString
+            as="h2"
+            value={heading}
+            className="text-xl sm:text-2xl font-bold mb-2"
+          />
+          <RichString
+            as="p"
+            value={subheading}
+            className="text-sm text-foreground/70 mb-4"
+          />
+          <NewsletterForm
+            compact
+            buttonLabel={newsletter.buttonLabel}
+            placeholder={newsletter.placeholder}
+            successMessage={newsletter.successMessage}
+          />
         </div>
 
         {/* Social links — icon row. Labels are sr-only + native title for
