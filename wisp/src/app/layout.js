@@ -1,3 +1,4 @@
+// Root layout: shared header/footer, fonts, and site-wide metadata.
 import { Fraunces, Inter_Tight } from "next/font/google";
 import { client, sanityFetchOptions } from "@/sanity/client";
 import { siteSettingsQuery } from "@/sanity/lib/queries";
