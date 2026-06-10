@@ -5,6 +5,8 @@ import { siteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import Analytics from "@/components/Analytics";
+import ConsentBanner from "@/components/ConsentBanner";
 import "./globals.css";
 
 // Display serif for headings. Variable axes ("SOFT", "WONK") let us pull in a
@@ -76,6 +78,8 @@ export default async function RootLayout({ children }) {
         />
         <main>{children}</main>
         <SiteFooter siteSettings={settings} />
+        <ConsentBanner />
+        <Analytics />
       </body>
     </html>
   );

@@ -1,4 +1,5 @@
 import NewsletterForm from "@/components/NewsletterForm";
+import CookiePreferencesLink from "@/components/CookiePreferencesLink";
 
 // Brand glyphs for the social link row. SVG path data simplified to single
 // `<path>` shapes so we can swap fill via currentColor and keep the markup
@@ -123,13 +124,12 @@ export default function SiteFooter({ siteSettings }) {
         )}
       </div>
 
-      {footerText && (
-        <div className="border-t border-foreground/5">
-          <div className="max-w-5xl mx-auto px-6 py-6 text-xs text-foreground/50">
-            {footerText}
-          </div>
+      <div className="border-t border-foreground/5">
+        <div className="max-w-5xl mx-auto px-6 py-6 text-xs text-foreground/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          {footerText ? <span>{footerText}</span> : <span />}
+          <CookiePreferencesLink />
         </div>
-      )}
+      </div>
     </footer>
   );
 }
