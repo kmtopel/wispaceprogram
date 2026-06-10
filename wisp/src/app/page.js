@@ -20,7 +20,7 @@ export default async function Home() {
             alt="WI Space Program"
             width={600}
             height={120}
-            className="mb-8 w-full h-auto dark:invert"
+            className="mb-8 w-full h-auto invert"
             priority
           />
           <p className="text-gray-500">

@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+/* Site is dark-only by design — the brand and imagery are built around a
+   dark canvas. We don't honor prefers-color-scheme: light intentionally. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -10,13 +13,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter-tight);
   --font-display: var(--font-fraunces);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {

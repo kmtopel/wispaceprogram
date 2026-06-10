@@ -81,7 +81,7 @@ export default function SiteHeader({
             width={600}
             height={80}
             priority
-            className="hidden sm:block w-auto h-20 dark:invert"
+            className="hidden sm:block w-auto h-20 invert"
           />
           <Image
             src={mobileLogoUrl}
@@ -89,7 +89,7 @@ export default function SiteHeader({
             width={300}
             height={130}
             priority
-            className="block sm:hidden w-auto h-16 dark:invert"
+            className="block sm:hidden w-auto h-16 invert"
           />
         </Link>
 
@@ -133,7 +133,7 @@ export default function SiteHeader({
           width={1200}
           height={130}
           priority
-          className="w-full max-w-3xl h-auto dark:invert"
+          className="w-full max-w-3xl h-auto invert"
         />
       </div>
 
