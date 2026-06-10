@@ -56,14 +56,17 @@ export async function POST(request) {
   }
 
   const rawBody = await request.text();
+  // Sanity HMAC-SHA256s `${timestamp}.${rawBody}` and base64url-encodes
+  // the digest (no padding). Match that exactly.
   const expected = crypto
     .createHmac("sha256", secret)
     .update(`${timestamp}.${rawBody}`)
-    .digest("hex");
+    .digest("base64url");
 
-  // Constant-time comparison to defeat timing attacks.
-  const expectedBuf = Buffer.from(expected, "hex");
-  const providedBuf = Buffer.from(provided, "hex");
+  // Constant-time comparison to defeat timing attacks. Compare as bytes
+  // to avoid leaking length info either.
+  const expectedBuf = Buffer.from(expected);
+  const providedBuf = Buffer.from(provided);
   if (
     expectedBuf.length !== providedBuf.length ||
     !crypto.timingSafeEqual(expectedBuf, providedBuf)
