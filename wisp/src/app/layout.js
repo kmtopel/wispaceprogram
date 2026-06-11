@@ -1,12 +1,13 @@
 // Root layout: shared header/footer, fonts, and site-wide metadata.
 import { Fraunces, Inter_Tight } from "next/font/google";
-import { sanityFetch, SanityLive } from "@/sanity/live";
+import { sanityFetch } from "@/sanity/live";
 import { siteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
+import SanityLiveOnPublic from "@/components/SanityLiveOnPublic";
 import "./globals.css";
 
 // Display serif for headings. Variable axes ("SOFT", "WONK") let us pull in a
@@ -78,9 +79,11 @@ export default async function RootLayout({ children }) {
         <SiteFooter siteSettings={settings} />
         <ConsentBanner />
         <Analytics />
-        {/* Subscribes the visitor's browser to Sanity's live API; when
-            content changes, the affected RSCs re-render without a reload. */}
-        <SanityLive />
+        {/* Subscribes the visitor's browser to Sanity's live API on
+            public pages only. Excluded inside /studio because
+            router.refresh() during an edit clobbers in-progress
+            uploads/state. */}
+        <SanityLiveOnPublic />
       </body>
     </html>
   );
