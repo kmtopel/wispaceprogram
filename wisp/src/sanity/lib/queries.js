@@ -32,6 +32,13 @@ export const siteSettingsQuery = `*[_type == "siteSettings" && _id == "siteSetti
   footerNewsletter
 }`;
 
+// All published pages — for sitemap.xml generation. Returns slug and
+// last-modified timestamp.
+export const allPagesQuery = `*[_type == "page" && defined(slug.current)] {
+  "slug": slug.current,
+  _updatedAt
+}`;
+
 // Fetches a single page by slug, including its blocks with referenced assets.
 export const pageQuery = `*[_type == "page" && slug.current == $slug][0] {
   _id,

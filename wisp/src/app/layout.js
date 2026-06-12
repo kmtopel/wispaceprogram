@@ -3,11 +3,13 @@ import { Fraunces, Inter_Tight } from "next/font/google";
 import { sanityFetch, SanityLive } from "@/sanity/live";
 import { siteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/image";
+import { SITE_URL } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import Analytics from "@/components/Analytics";
 import ConsentBanner from "@/components/ConsentBanner";
 import SanityLiveOnPublic from "@/components/SanityLiveOnPublic";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 // Display serif for headings. Variable axes ("SOFT", "WONK") let us pull in a
@@ -27,15 +29,52 @@ const interTight = Inter_Tight({
   display: "swap",
 });
 
-export const metadata = {
-  title: "WI Space Program",
-  description: "Official site of WI Space Program.",
-};
-
 // Bundled SVG fallbacks if no logo has been uploaded to Site Settings.
 const DEFAULT_SPLASH_LOGO = "/logos/horizontal-wordmark.svg";
 const DEFAULT_DESKTOP_LOGO = "/logos/horizontal-wordmark.svg";
 const DEFAULT_MOBILE_LOGO = "/logos/horizontal-monogram.svg";
+
+// Site-wide metadata pulled from Sanity Site Settings. Per-page exports
+// (in app/page.js, app/[slug]/page.js) can override title/description/og
+// individually — anything they don't set falls back to these defaults.
+export async function generateMetadata() {
+  const { data: settings } = await sanityFetch({ query: siteSettingsQuery });
+
+  const siteName = settings?.title || "Wisconsin Space Program";
+  const siteDescription =
+    settings?.description ||
+    "Official site of Wisconsin Space Program.";
+
+  // OG/Twitter share image — splash logo if uploaded, otherwise the
+  // bundled wordmark. Sized appropriately for social previews.
+  const ogImage = settings?.splashLogo
+    ? urlFor(settings.splashLogo).width(1200).height(630).fit("crop").url()
+    : `${SITE_URL}/logos/horizontal-wordmark.svg`;
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: siteName,
+      template: `%s — ${siteName}`,
+    },
+    description: siteDescription,
+    openGraph: {
+      title: siteName,
+      description: siteDescription,
+      url: SITE_URL,
+      siteName,
+      type: "website",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteName,
+      description: siteDescription,
+      images: [ogImage],
+    },
+    alternates: { canonical: SITE_URL },
+  };
+}
 
 export default async function RootLayout({ children }) {
   const { data: settings } = await sanityFetch({
@@ -52,6 +91,24 @@ export default async function RootLayout({ children }) {
     ? urlFor(settings.mobileLogo).url()
     : DEFAULT_MOBILE_LOGO;
 
+  // Schema.org MusicGroup — gives Google enough structured data to build
+  // a Knowledge Panel and link the band to its Spotify/Bandcamp/IG
+  // profiles. sameAs is the canonical way to link external identities.
+  const socialUrls = (settings?.socialLinks || [])
+    .map((l) => l.url)
+    .filter(Boolean);
+  const musicGroupSchema = {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    name: settings?.title || "Wisconsin Space Program",
+    url: SITE_URL,
+    ...(settings?.description && { description: settings.description }),
+    ...(settings?.splashLogo && {
+      image: urlFor(settings.splashLogo).width(1200).url(),
+    }),
+    ...(socialUrls.length > 0 && { sameAs: socialUrls }),
+  };
+
   return (
     <html lang="en">
       <head>
@@ -65,6 +122,9 @@ export default async function RootLayout({ children }) {
           crossOrigin=""
         />
         <link rel="preconnect" href="https://bandcamp.com" crossOrigin="" />
+        {/* Tells Google "this is a band, here are its socials." Surfaces
+            in Knowledge Panel and rich results for the band's name. */}
+        <JsonLd data={musicGroupSchema} />
       </head>
       <body
         className={`${fraunces.variable} ${interTight.variable} antialiased`}

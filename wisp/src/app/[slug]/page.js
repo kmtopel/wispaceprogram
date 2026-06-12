@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { sanityFetch } from "@/sanity/live";
 import { pageQuery } from "@/sanity/lib/queries";
+import { SITE_URL } from "@/lib/site";
 import BlockRenderer from "@/components/BlockRenderer";
 
 export async function generateMetadata({ params }) {
@@ -9,7 +10,20 @@ export async function generateMetadata({ params }) {
     query: pageQuery,
     params: { slug },
   });
-  return { title: page?.title ?? "Not found" };
+  if (!page) return { title: "Not found" };
+
+  const canonical = `${SITE_URL}/${slug}`;
+  return {
+    title: page.title,
+    alternates: { canonical },
+    openGraph: {
+      title: page.title,
+      url: canonical,
+    },
+    twitter: {
+      title: page.title,
+    },
+  };
 }
 
 export default async function DynamicPage({ params }) {
