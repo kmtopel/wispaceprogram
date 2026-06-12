@@ -1,18 +1,18 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { SanityLive } from "@/sanity/live";
 
-// Mounts the Sanity live-events listener everywhere EXCEPT under /studio.
+// Client wrapper that suppresses its children when the current path is
+// under /studio. Used to keep <SanityLive /> from firing router.refresh()
+// while an editor is in the middle of an upload — the refresh otherwise
+// nukes Studio's in-progress state.
 //
-// Why: SanityLive subscribes to content-change events and calls
-// router.refresh() when one fires. That refresh nukes whatever local
-// state the Studio editor is holding — most visibly, an in-progress
-// image upload disappears between hitting "Upload" and seeing the
-// thumbnail render. We only need live updates on the public site; the
-// Studio has its own internal sync.
-export default function SanityLiveOnPublic() {
+// Important: this component does NOT import <SanityLive /> directly,
+// because SanityLive is a server-only component and pulling it into a
+// "use client" file breaks the build. Instead, the layout (a Server
+// Component) imports SanityLive and passes it as children here.
+export default function SanityLiveOnPublic({ children }) {
   const pathname = usePathname();
   if (pathname?.startsWith("/studio")) return null;
-  return <SanityLive />;
+  return children;
 }
